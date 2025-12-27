@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy New Year 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- إعدادات أساسية --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px; /* عمق ثلاثي الأبعاد أكبر */
+        }
+
+        /* --- مشهد الخلفية الواقعي --- */
+        .scene-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            /* تدرج لوني ليلي شتوي عميق */
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        /* تحسين مظهر بابا نويل */
+        .santa-flying {
+            position: absolute;
+            top: 10%;
+            right: -20%;
+            font-size: 5rem;
+            /* حركة طيران انسيابية */
+            animation: flySantaRealistic 30s linear infinite;
+            z-index: 2;
+            /* إضاءة درامية */
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)) brightness(1.1);
+            opacity: 0.9;
+        }
+
+        @keyframes flySantaRealistic {
+            0% { transform: translateX(0) translateY(0) rotate(2deg) scale(0.8); }
+            25% { transform: translateX(-50vw) translateY(30px) rotate(-2deg) scale(0.9); }
+            50% { transform: translateX(-100vw) translateY(0) rotate(2deg) scale(1); }
+            75% { transform: translateX(-150vw) translateY(30px) rotate(-2deg) scale(0.9); }
+            100% { transform: translateX(-250vw) translateY(0) rotate(2deg) scale(0.8); }
+        }
+
+        /* تحسين مظهر الأشجار والأرضية */
+        .ground-elements {
+            position: absolute;
+            bottom: 0; width: 100%; height: 50%;
+            z-index: 3;
+            display: flex; justify-content: center; align-items: flex-end;
+            pointer-events: none;
+        }
+
+        .tree-container {
+            font-size: 9rem;
+            position: relative;
+            bottom: -30px;
+            /* ظلال وإضاءة واقعية للأشجار */
+            filter: drop-shadow(0 15px 30px rgba(0, 20, 0, 0.6)) brightness(0.8) contrast(1.2);
+        }
+        
+        .snow-hill {
+            position: absolute;
+            bottom: 0;
+            width: 150%;
+            height: 120px;
+            /* تدرج لوني للأرضية الثلجية */
+            background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+            border-radius: 100% 100% 0 0;
+            z-index: -1;
+            box-shadow: 0 -10px 30px rgba(255,255,255,0.2);
+        }
+
+        /* كانفاس الثلج */
+        #snow-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 10;
+        }
+
+        /* --- البطاقات الزجاجية الفاخرة (Ultra-Realistic Glass) --- */
+        .glass-card {
+            background: rgba(10, 10, 10, 0.4); /* شفافية معتمة قليلاً */
+            /* تغبيش قوي جداً للواقعية */
+            backdrop-filter: blur(25px) saturate(120%);
+            -webkit-backdrop-filter: blur(25px) saturate(120%);
+            /* حدود رفيعة ودقيقة */
+            border: 0.5px solid rgba(255, 255, 255, 0.15);
+            border-top: 0.5px solid rgba(255, 255, 255, 0.3);
+            /* ظلال ناعمة متعددة الطبقات للعمق */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7), inset 0 0 20px rgba(255,255,255,0.03);
+            border-radius: 35px;
+            text-align: center;
+            color: #fff;
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* شاشة الدخول */
+        #login-screen {
+            position: relative; z-index: 100;
+            padding: 45px 35px;
+            width: 85%; max-width: 400px;
+        }
+
+        .year-title {
+            font-size: 4.5rem; font-weight: 900;
+            background: linear-gradient(to bottom, #ffffff, #fbb034);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 15px rgba(251, 176, 52, 0.6));
+        }
+
+        input[type="text"] {
+            width: 100%; padding: 15px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff; text-align: center; font-size: 1.6rem;
+            margin: 25px 0; outline: none; letter-spacing: 4px;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fbb034;
+            box-shadow: 0 0 20px rgba(251, 176, 52, 0.2);
+        }
+
+        button.login-btn {
+            width: 100%; padding: 15px; border-radius: 50px; border: none;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white; font-weight: 700; font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 75, 43, 0.3);
+            transition: 0.3s;
+        }
+        button.login-btn:active { transform: scale(0.98); }
+
+        /* شاشة الرسالة */
+        #message-screen {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 50; justify-content: center; align-items: center; padding: 20px;
+        }
+
+        .message-card-content {
+            padding: 35px; width: 100%; max-width: 580px;
+            max-height: 85vh; overflow-y: auto;
+        }
+
+        .message-text {
+            font-size: 1.05rem; line-height: 1.9;
+            color: #f0f2f5;
+            text-align: justify; text-align-last: center;
+            white-space: pre-wrap;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+            font-weight: 300;
+        }
+
+        .surprise-trigger {
+            margin-top: 35px; cursor: pointer;
+            animation: float 2.5s infinite ease-in-out;
+        }
+        .glowing-heart {
+            font-size: 3.5rem; color: #e74c3c;
+            filter: drop-shadow(0 0 20px #e74c3c);
+            animation: beat 1s infinite alternate cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+        @keyframes beat { to { transform: scale(1.15); filter: drop-shadow(0 0 30px #e74c3c); } }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        /* شاشة الاحتفال */
+        #celebration-screen {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 200; background: radial-gradient(circle, rgba(20,20,20,0.9) 0%, rgba(0,0,0,1) 100%);
+            justify-content: center; align-items: center; flex-direction: column;
+        }
+        #fireworksCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        .final-msg {
+            position: relative; z-index: 201; text-align: center;
+            animation: slideUp 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px; border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        @keyframes slideUp { from{opacity:0;transform:translateY(60px) scale(0.9);} to{opacity:1;transform:translateY(0) scale(1);} }
+
+    </style>
+</head>
+<body>
+
+    <div class="scene-container">
+        <div class="santa-flying">🎅🛷💨</div>
+        <div class="ground-elements">
+             <div class="snow-hill"></div>
+            <div class="tree-container" style="z-index: 2; transform: scale(0.9);">🎄</div>
+            <div class="tree-container" style="font-size: 6rem; margin-right: -70px; z-index: 1; filter: brightness(0.6);">🎄</div>
+             <div class="tree-container" style="font-size: 7rem; margin-left: -70px; z-index: 1; filter: brightness(0.7);">🎄</div>
+        </div>
+    </div>
+
+    <canvas id="snow-canvas"></canvas>
+
+    <div id="login-screen" class="glass-card">
+        <div style="font-size: 3.5rem; margin-bottom: -5px; filter: drop-shadow(0 0 10px gold);">🎇✨🎇</div>
+        <div class="year-title">2026</div>
+        <p style="color:#ccc; font-weight: 300; letter-spacing: 1px;">أدخلي الرقم السري الخاص</p>
+        
+        <input type="text" id="passwordInput" placeholder="7/11" autocomplete="off">
+        
+        <button class="login-btn" onclick="checkPassword()">دخول</button>
+        <p id="error" style="color: #ff6b6b; display:none; margin-top:20px; font-weight:700; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">الباسورد غير صحيح، حاولي مرة أخرى</p>
+    </div>
+
+    <div id="message-screen">
+        <div class="glass-card message-card-content">
+            <h1 style="color:#fbb034; margin-bottom:25px; font-weight: 900; text-shadow: 0 0 20px rgba(251, 176, 52, 0.4); font-size: 2rem;">كل سنة وانتي طيبة</h1>
+            <div class="message-text">
+كل سنة وانتي طيبة بمناسبة السنة الجديدة، كان لازم ابعتلك لاني مقدرش ابدأ سنة جديدة وفي قلبي كلام ليكي مطلعش.
+
+انا عارف اننا بعدنا وده كان نصيب وحكم ربنا، بس الحمد لله اننا لسه موجودين في حياة بعض حتى لو مفيش بينا كلام. بس انا بكتبلك وانا جوايا حزن كبير اوي ووجع مش قادر اخبيه، لاني لغاية النهاردة مدخلتش اي بنت حياتي من بعدك وقفلت قلبي عليكي انتي وبس.
+
+لاني مكنتش بتسلى وكنت بحبك بجد ومخلص ليكي لابعد حد، في حين اني شايف وعارف انك دخلتي ولاد كتير حياتك وكلمتي ناس غيري وعوضتي غيابي ونسيتيني بسرعة اوي، وده اللي كاسر نفسي اني صنت الحب والوعد لوحدي وانتي استسهلتي البديل والنسيان.
+
+بس رغم كل اللي انتي عملتيه ده ورغم الوجع اللي سببتيه ليا، انا لسه بحبك وهفضل احبك ومش هدخل اي بنت حياتي غيرك، لاني واثق ومتأكد انك مهما عرفتي ناس ومهما دخلتي ولاد حياتك مش هتلاقي حد يحبك قدي ولا يخاف عليكي زيي.
+
+انا مسامحك عشان عايزك تكوني مرتاحة، وربنا يكتبلك راحة البال ويسعدك. ولو في اي يوم الدنيا جت عليكي او احتاجتي مساعدة اوعي تترددي لحظة انك تكلميني، هتلاقيني دايما سند وضهر ليكي لاني عمري ما هتغير ناحيتك وهفضل جنبك وقت ما تحتاجيني.
+            </div>
+            
+            <div class="surprise-trigger" onclick="startCelebration()">
+                <div style="color: #fbb034; font-weight:700; margin-bottom:10px; letter-spacing: 1px;">اضغطي هنا للمفاجأة</div>
+                <div class="glowing-heart">❤️✨</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="celebration-screen">
+        <canvas id="fireworksCanvas"></canvas>
+        <div class="final-msg">
+            <div style="font-size: 5rem; color:#fbb034; font-weight:900; text-shadow: 0 0 30px #e74c3c, 0 0 10px #fbb034;">2026</div>
+            <div style="font-size: 1.6rem; line-height: 1.6; color:#fff; font-weight: 700; text-shadow: 0 2px 5px rgba(0,0,0,0.8);">
+                كل عام وأنتِ بألف خير<br>وصحة وسلامة<br>
+                <span style="font-size:1.3rem; color:#ddd; font-weight: 400;">سنة سعيدة عليكي يا رب</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. كود الثلج الواقعي (Realistic Snow - Soft & Swaying) ---
+        const snowCanvas = document.getElementById('snow-canvas');
+        const snowCtx = snowCanvas.getContext('2d');
+        let snowflakes = [];
+        function resizeSnow() { snowCanvas.width = window.innerWidth; snowCanvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeSnow);
+        resizeSnow();
+
+        class Snowflake {
+            constructor() {
+                this.x = Math.random() * snowCanvas.width;
+                this.y = Math.random() * snowCanvas.height;
+                this.radius = Math.random() * 4 + 2; // حجم أكبر وأنعم
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.6 + 0.2;
+                this.sway = Math.random() * 0.02; // عامل التمايل
+                this.angle = Math.random() * Math.PI * 2; // زاوية البدء
+            }
+            update() {
+                this.y += this.speed;
+                this.angle += this.sway; // تغيير الزاوية
+                this.x += Math.sin(this.angle) * 0.5; // حركة أفقية انسيابية
+                if (this.y > snowCanvas.height + 10) {
+                    this.y = -10;
+                    this.x = Math.random() * snowCanvas.width;
+                }
+            }
+            draw() {
+                snowCtx.beginPath();
+                // رسم الثلج كتدرج لوني ناعم (Radial Gradient) للواقعية
+                let gradient = snowCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+                gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+                gradient.addColorStop(0.6, `rgba(255, 255, 255, ${this.opacity * 0.5})`);
+                gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+                snowCtx.fillStyle = gradient;
+                snowCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                snowCtx.fill();
+            }
+        }
+        for (let i = 0; i < 120; i++) snowflakes.push(new Snowflake());
+        function animateSnow() {
+            snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+            snowflakes.forEach(flake => { flake.update(); flake.draw(); });
+            requestAnimationFrame(animateSnow);
+        }
+        animateSnow();
+
+        // --- 2. وظائف الموقع ---
+        function checkPassword() {
+            const pass = document.getElementById('passwordInput').value;
+            if (pass === "7/11") {
+                const login = document.getElementById('login-screen');
+                login.style.transform = 'scale(0.9) rotateX(15deg) translateZ(-100px)';
+                login.style.opacity = '0';
+                login.style.filter = 'blur(10px)';
+                setTimeout(() => { login.style.display = 'none'; document.getElementById('message-screen').style.display = 'flex'; }, 600);
+            } else {
+                const error = document.getElementById('error');
+                error.style.display = 'block';
+                const login = document.getElementById('login-screen');
+                login.animate([ { transform: 'translateX(0)' }, { transform: 'translateX(-15px)' }, { transform: 'translateX(15px)' }, { transform: 'translateX(0)' } ], { duration: 400, easing: 'ease-in-out' });
+            }
+        }
+
+        function startCelebration() {
+            const msgScreen = document.getElementById('message-screen');
+            msgScreen.style.transform = 'scale(1.1)';
+            msgScreen.style.opacity = '0';
+            setTimeout(() => {
+                msgScreen.style.display = 'none';
+                document.getElementById('celebration-screen').style.display = 'flex';
+                loopFireworks();
+            }, 500);
+        }
+
+        // --- 3. الألعاب النارية السنيمائية (Realistic & Cinematic Fireworks) ---
+        const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+        let fwWidth, fwHeight;
+        let fireworks = [];
+        let particles = [];
+
+        function resizeFireworks() { fwWidth = window.innerWidth; fwHeight = window.innerHeight; canvas.width = fwWidth; canvas.height = fwHeight; }
+        window.addEventListener('resize', resizeFireworks); resizeFireworks();
+        function random(min, max) { return Math.random() * (max - min) + min; }
+
+        class Firework {
+            constructor(sx, sy, tx, ty) {
+                this.x = sx; this.y = sy; this.sx = sx; this.sy = sy;
+                this.tx = tx; this.ty = ty;
+                this.distanceToTarget = Math.sqrt(Math.pow(tx - sx, 2) + Math.pow(ty - sy, 2));
+                this.distanceTraveled = 0;
+                this.angle = Math.atan2(ty - sy, tx - sx);
+                this.speed = 3;
+                this.acceleration = 1.04;
+                this.hue = random(0, 360);
+                this.brightness = random(60, 80);
+                this.targetRadius = 1;
+            }
+            update(index) {
+                this.speed *= this.acceleration;
+                const vx = Math.cos(this.angle) * this.speed;
+                const vy = Math.sin(this.angle) * this.speed;
+                this.distanceTraveled = Math.sqrt(Math.pow(this.sx - this.x, 2) + Math.pow(this.sy - this.y, 2));
+                if (this.distanceTraveled >= this.distanceToTarget) {
+                    createParticles(this.tx, this.ty, this.hue);
+                    fireworks.splice(index, 1);
+                } else { this.x += vx; this.y += vy; }
+            }
+            draw() {
+                // رسم الصاروخ كخط متوهج
+                ctx.beginPath();
+                ctx.moveTo(this.x - Math.cos(this.angle) * 10, this.y - Math.sin(this.angle) * 10);
+                ctx.lineTo(this.x, this.y);
+                ctx.strokeStyle = `hsl(${this.hue}, 100%, ${this.brightness}%)`;
+                ctx.lineWidth = 3;
+                ctx.lineCap = 'round';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = `hsl(${this.hue}, 100%, 50%)`;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        class Particle {
+            constructor(x, y, hue) {
+                this.x = x; this.y = y;
+                this.angle = random(0, Math.PI * 2);
+                this.speed = random(1, 12); // سرعة انفجار أكبر
+                this.friction = 0.94; // احتكاك واقعي
+                this.gravity = 1.2; // جاذبية أقوى
+                this.hue = random(hue - 30, hue + 30); // تنوع لوني في الانفجار الواحد
+                this.brightness = random(60, 90);
+                this.alpha = 1;
+                this.decay = random(0.01, 0.025);
+                this.size = random(1.5, 3.5); // حجم متنوع للشظايا
+            }
+            update(index) {
+                this.speed *= this.friction;
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed + this.gravity;
+                this.alpha -= this.decay;
+                if (this.alpha <= this.decay) { particles.splice(index, 1); }
+            }
+            draw() {
+                // رسم الشظايا كجسيمات متوهجة (Glowing Orbs)
+                ctx.beginPath();
+                let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
+                gradient.addColorStop(0.1, `hsla(60, 100%, 90%, ${this.alpha})`); // قلب أبيض ساطع
+                gradient.addColorStop(0.4, `hsla(${this.hue}, 100%, ${this.brightness}%, ${this.alpha * 0.8})`);
+                gradient.addColorStop(1, `hsla(${this.hue}, 100%, 50%, 0)`);
+                ctx.fillStyle = gradient;
+                ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                ctx.globalCompositeOperation = 'lighter'; // دمج ضوئي
+                ctx.fill();
+                ctx.globalCompositeOperation = 'source-over';
+            }
+        }
+
+        function createParticles(x, y, hue) {
+            let particleCount = 80; // عدد أكبر من الشظايا
+            while (particleCount--) { particles.push(new Particle(x, y, hue)); }
+        }
+
+        function loopFireworks() {
+            requestAnimationFrame(loopFireworks);
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.4)'; // ذيل أطول للواقعية
+            ctx.fillRect(0, 0, fwWidth, fwHeight);
+            ctx.globalCompositeOperation = 'source-over';
+            
+            if (Math.random() < 0.04) { fireworks.push(new Firework(fwWidth / 2, fwHeight, random(fwWidth*0.2, fwWidth*0.8), random(fwHeight*0.1, fwHeight*0.4))); }
+            let i = fireworks.length; while (i--) { fireworks[i].draw(); fireworks[i].update(i); }
+            let j = particles.length; while (j--) { particles[j].draw(); particles[j].update(j); }
+        }
+    </script>
+</body>
+</html>
