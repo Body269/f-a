@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
     <title>Happy New Year 2026</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Marhey:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { height: 100vh; overflow: hidden; background: #000; display: flex; justify-content: center; align-items: center; perspective: 1200px; }
@@ -13,34 +16,21 @@
         /* --- الخلفية --- */
         .scene-container {
             position: fixed; top: -5%; left: -5%; width: 110%; height: 110%; z-index: -5; overflow: hidden;
-            background: linear-gradient(to bottom, #050510 0%, #101025 100%);
+            background: linear-gradient(to bottom, #02001f 0%, #0f2027 100%);
             transition: transform 0.1s ease-out;
         }
 
-        /* زر الواتساب (المطور) */
+        /* زر الواتساب */
         .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px; /* الزاوية اليمين تحت */
-            background-color: #25d366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 2000; /* فوق كل حاجة */
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid white;
+            position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white;
+            padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 2000; display: flex; align-items: center; gap: 8px;
+            transition: transform 0.3s; border: 2px solid white;
         }
-        .whatsapp-btn:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-btn:hover { transform: scale(1.05); }
         .whatsapp-icon { width: 20px; height: 20px; }
 
-        /* النجوم والشهب */
+        /* النجوم */
         .stars-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -4; }
         .star { position: absolute; background: white; border-radius: 50%; opacity: 0.8; animation: twinkle 3s infinite ease-in-out; }
         .shooting-star {
@@ -53,18 +43,20 @@
         @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
         /* القمر */
-        .moon-container {
-            position: absolute; top: 10%; right: 10%; width: 100px; height: 100px; border-radius: 50%; background: #fdfcdc;
-            box-shadow: 0 0 60px 10px rgba(255, 255, 240, 0.5), inset -20px -20px 50px rgba(0,0,0,0.1); z-index: -3;
+        .moon {
+            position: absolute; top: 8%; right: 12%; width: 100px; height: 100px;
+            background: #fffeb3; border-radius: 50%;
+            box-shadow: 0 0 50px #fffeb3, 0 0 100px rgba(255, 255, 255, 0.2);
+            z-index: -3;
         }
-        .crater { position: absolute; background: rgba(0,0,0,0.05); border-radius: 50%; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1); }
 
+        /* --- الصور (تم تحديث الروابط) --- */
+        
         /* بابا نويل */
         .santa-real {
-            position: absolute; top: 15%; right: -500px; width: 350px; z-index: 0;
+            position: absolute; top: 15%; right: -500px; width: 380px; z-index: 0;
             filter: drop-shadow(0 20px 20px rgba(0,0,0,0.5)); 
             animation: flySanta 45s linear infinite;
-            transition: all 1s ease;
         }
         @keyframes flySanta {
             0% { transform: translateX(0) translateY(0) rotate(2deg) scale(0.8); }
@@ -74,69 +66,60 @@
         .santa-zoom { animation: flySantaZoom 3s forwards ease-in !important; }
         @keyframes flySantaZoom { to { transform: translateX(-400vw) translateY(-200px) scale(0.5); } }
 
-        /* الأرضية */
-        .ground-elements { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; transition: transform 0.2s ease-out; }
-        .snow-hill {
-            position: absolute; bottom: 0; width: 150%; height: 160px; left: -25%; z-index: 1; border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-            background: radial-gradient(circle at 30% 20%, #f5fbff, transparent 40%), radial-gradient(circle at 80% 40%, #ecf6ff, transparent 30%), linear-gradient(to top, #cddae4 0%, #f0f8ff 100%);
-            box-shadow: 0 -10px 40px rgba(200, 220, 255, 0.2);
-        }
-        .frozen-pond {
-            position: absolute; bottom: 30px; left: 60%; transform: translateX(-50%); width: 200px; height: 70px; z-index: 4;
-            border-radius: 60% 40% 50% 70% / 50% 60% 40% 50%;
-            background: repeating-linear-gradient(45deg, rgba(255,255,255,0.25) 0px, rgba(255,255,255,0.25) 1px, transparent 1px, transparent 15px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 1px, transparent 1px, transparent 10px), linear-gradient(to bottom, #eef7ff, #c9dbe9);
-            border: 3px solid rgba(255, 255, 255, 0.7); box-shadow: inset 0 0 20px rgba(0, 80, 150, 0.2), 0 5px 15px rgba(0,0,0,0.1); overflow: hidden;
-        }
-        .frozen-pond::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); border-radius: 60% 40% 0 0 / 50% 60% 0 0; }
+        /* الأشجار */
+        .ground-elements { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
         
-        .tree { position: absolute; bottom: 0; filter: brightness(0.7) contrast(1.1); }
-        .tree-back-left { left: -50px; width: 300px; bottom: 60px; z-index: 2; filter: brightness(0.5) blur(2px); }
-        .tree-back-right { right: -50px; width: 280px; bottom: 70px; z-index: 3; filter: brightness(0.4) blur(3px); }
-        .tree-front { left: 50%; transform: translateX(-50%); width: 320px; bottom: 40px; z-index: 5; filter: brightness(0.6) drop-shadow(0 10px 15px rgba(0,0,0,0.8)); }
-
-        /* اليرراعات */
-        .firefly {
-            position: absolute; width: 4px; height: 4px; background-color: #ffeba7; border-radius: 50%;
-            box-shadow: 0 0 10px #ffeba7, 0 0 20px #ffeba7; opacity: 0; animation: fireflyMove 10s infinite alternate;
-            z-index: 6; pointer-events: none;
+        .snow-hill {
+            position: absolute; bottom: 0; width: 150%; height: 180px; left: -25%; z-index: 1; border-radius: 50% 50% 0 0;
+            background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+            box-shadow: 0 -10px 40px rgba(255,255,255,0.2);
         }
-        @keyframes fireflyMove { 0% { transform: translate(0, 0); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(50px, -100px); opacity: 0; } }
+        
+        .frozen-pond {
+            position: absolute; bottom: 30px; left: 60%; transform: translateX(-50%); width: 220px; height: 70px; z-index: 4;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(200,230,255,0.5) 100%);
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+
+        .tree { position: absolute; bottom: 0; filter: brightness(0.7); }
+        .tree-front { left: 50%; transform: translateX(-50%); width: 350px; bottom: 30px; z-index: 5; filter: brightness(0.8); }
+        .tree-back { opacity: 0.6; width: 250px; z-index: 2; filter: blur(1px); }
+
+        /* اليراعات */
+        .firefly {
+            position: absolute; width: 5px; height: 5px; background-color: #ffd700; border-radius: 50%;
+            box-shadow: 0 0 10px #ffd700; opacity: 0; animation: fireflyMove 10s infinite alternate; z-index: 6;
+        }
+        @keyframes fireflyMove { 0% { opacity: 0; transform: translateY(0); } 50% { opacity: 1; } 100% { opacity: 0; transform: translateY(-100px); } }
 
         #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
 
-        /* التفاعل السحري */
-        .magic-spark { position: absolute; width: 4px; height: 4px; background: gold; border-radius: 50%; pointer-events: none; z-index: 9999; box-shadow: 0 0 10px gold; animation: sparkFade 1s forwards; }
-        @keyframes sparkFade { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(3); } }
-
-        /* البطاقات */
+        /* الكروت */
         .glass-card {
-            background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.8); border-radius: 30px; text-align: center; color: #fff;
-            transform-style: preserve-3d; transition: all 0.6s ease; position: relative; z-index: 100;
+            background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px; text-align: center; color: #fff; position: relative; z-index: 100;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); transition: 0.5s;
         }
-        #login-screen { padding: 50px 30px; width: 85%; max-width: 400px; }
-        .year-title { font-size: 4rem; font-weight: 900; background: linear-gradient(to bottom, #fff, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); }
-        input[type="text"] { width: 100%; padding: 15px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.4); color: #fff; text-align: center; font-size: 1.6rem; margin: 25px 0; outline: none; letter-spacing: 4px; transition: 0.3s; }
-        button.login-btn { width: 100%; padding: 15px; border-radius: 50px; border: none; background: linear-gradient(135deg, #c31432, #240b36); color: white; font-weight: 700; font-size: 1.2rem; cursor: pointer; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); transition: 0.3s; }
 
-        /* الرسالة */
+        #login-screen { padding: 40px 20px; width: 90%; max-width: 380px; }
+        .year-title { font-size: 3.5rem; font-weight: bold; color: #ffd700; text-shadow: 0 0 10px #ffd700; margin-bottom: 15px; }
+        input { width: 100%; padding: 12px; border-radius: 30px; border: none; background: rgba(255,255,255,0.1); color: #fff; text-align: center; font-size: 1.4rem; margin: 20px 0; outline: none; }
+        button { width: 100%; padding: 12px; border-radius: 30px; border: none; background: linear-gradient(45deg, #ff0000, #ff4d4d); color: white; font-weight: bold; cursor: pointer; }
+
         #message-screen { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 50; justify-content: center; align-items: center; padding: 20px; }
-        .message-card-content { padding: 35px; width: 100%; max-width: 580px; max-height: 85vh; overflow-y: auto; }
-        .message-text { font-family: 'Marhey', cursive; font-size: 1.1rem; line-height: 2.2; color: #f0f2f5; text-align: justify; text-align-last: center; white-space: pre-wrap; text-shadow: 0 2px 4px rgba(0,0,0,0.8); font-weight: 400; min-height: 300px; }
-        .surprise-trigger { margin-top: 35px; cursor: pointer; animation: float 2.5s infinite ease-in-out; display: none; flex-direction: column; align-items: center; } 
-        .css-heart { background-color: red; display: inline-block; height: 30px; margin: 0 10px; position: relative; top: 0; transform: rotate(-45deg); width: 30px; box-shadow: 0 0 20px red; margin-top: 15px; animation: beat 1s infinite alternate; }
-        .css-heart:before, .css-heart:after { content: ""; background-color: red; border-radius: 50%; height: 30px; position: absolute; width: 30px; }
-        .css-heart:before { top: -15px; left: 0; } .css-heart:after { left: 15px; top: 0; }
-        @keyframes beat { to { transform: rotate(-45deg) scale(1.2); filter: drop-shadow(0 0 30px red); } }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .message-card-content { padding: 30px; width: 100%; max-width: 550px; max-height: 85vh; overflow-y: auto; }
+        .message-text { font-family: 'Marhey', sans-serif; font-size: 1rem; line-height: 2; color: #eee; text-align: justify; text-align-last: center; min-height: 200px; }
+        
+        .surprise-trigger { margin-top: 20px; cursor: pointer; display: none; flex-direction: column; align-items: center; }
+        .heart-icon { font-size: 3rem; animation: beat 1s infinite alternate; }
+        @keyframes beat { to { transform: scale(1.2); } }
 
-        /* الاحتفال */
-        #celebration-screen { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 200; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; flex-direction: column; }
+        #celebration-screen { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 200; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; flex-direction: column; }
         #fireworksCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .final-msg { position: relative; z-index: 201; text-align: center; animation: slideUp 1.5s forwards; background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 30px; backdrop-filter: blur(15px); border: 1px solid rgba(255, 215, 0, 0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        @keyframes slideUp { from{opacity:0;transform:translateY(60px) scale(0.9);} to{opacity:1;transform:translateY(0) scale(1);} }
-
-        #bg-music { display: none; }
+        .final-msg { position: relative; z-index: 201; text-align: center; animation: slideUp 1s forwards; padding: 20px; }
+        @keyframes slideUp { from{transform:translateY(50px);opacity:0;} to{transform:translateY(0);opacity:1;} }
     </style>
 </head>
 <body>
@@ -146,28 +129,33 @@
     </audio>
 
     <a href="https://wa.me/201063259887" target="_blank" class="whatsapp-btn">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.694c.93.515 1.733.709 2.823.71h.003c3.191 0 5.777-2.587 5.777-5.767 0-1.545-.601-2.996-1.692-4.088C15.044 6.785 13.591 6.172 12.031 6.172zm7.599 9.876c-1.07 1.069-2.49 1.659-4.004 1.66h-.006c-1.325 0-2.316-.328-3.468-.962l-3.719.975.992-3.626c-.571-1.096-.946-2.091-.946-3.666 0-3.149 2.56-5.711 5.709-5.711 1.523 0 2.955.592 4.026 1.661 2.22 2.22 2.22 5.823.016 7.669z"/></svg>
         تواصل مع المطور
     </a>
 
     <div class="scene-container" id="scene">
-        <div class="stars-container" id="stars-container">
-            <div class="shooting-star" style="top: 20%; left: 80%; animation-delay: 2s;"></div>
-            <div class="shooting-star" style="top: 10%; left: 90%; animation-delay: 12s;"></div>
-        </div>
-        <div class="moon-container">
-            <div class="crater" style="width: 20px; height: 20px; top: 30%; left: 20%;"></div>
-            <div class="crater" style="width: 10px; height: 10px; top: 60%; left: 40%;"></div>
+        <div class="stars-container">
+            <div class="shooting-star" style="top: 20%; left: 80%;"></div>
         </div>
         
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Santa_Claus_sleigh_reindeer.svg/1280px-Santa_Claus_sleigh_reindeer.svg.png" class="santa-real" id="santa" alt="Santa">
+        <div class="moon"></div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Santa_Claus_sleigh_reindeer.svg/1280px-Santa_Claus_sleigh_reindeer.svg.png" 
+             class="santa-real" id="santa" referrerpolicy="no-referrer" alt="Santa">
         
         <div class="ground-elements" id="ground">
             <div class="snow-hill"></div>
             <div class="frozen-pond"></div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Spruce_tree.png/600px-Spruce_tree.png" class="tree tree-back-left" alt="Tree">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Spruce_tree.png/600px-Spruce_tree.png" class="tree tree-back-right" alt="Tree">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Spruce_tree.png/600px-Spruce_tree.png" class="tree tree-front" alt="Tree">
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Spruce_tree.png/600px-Spruce_tree.png" 
+                 class="tree tree-back" style="left: -50px;" referrerpolicy="no-referrer" alt="tree">
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Spruce_tree.png/600px-Spruce_tree.png" 
+                 class="tree tree-back" style="right: -50px;" referrerpolicy="no-referrer" alt="tree">
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Spruce_tree.png/600px-Spruce_tree.png" 
+                 class="tree tree-front" referrerpolicy="no-referrer" alt="tree">
+
             <div id="fireflies-container"></div>
         </div>
     </div>
@@ -175,21 +163,21 @@
     <canvas id="snow-canvas"></canvas>
 
     <div id="login-screen" class="glass-card" onclick="playAudio()">
+        <div style="font-size: 3rem; margin-bottom: 10px;">🎄✨</div>
         <div class="year-title">2026</div>
-        <p style="color:#bbb; font-weight: 300; letter-spacing: 1px;">أدخلي الرقم السري الخاص</p>
-        <input type="text" id="passwordInput" placeholder="7/11" autocomplete="off">
-        <button class="login-btn" onclick="checkPassword()">دخول</button>
-        <p id="error" style="color: #ff6b6b; display:none; margin-top:20px; font-weight:700;">الباسورد غير صحيح</p>
+        <p style="color:#ddd; margin-bottom: 20px;">أدخلي الرقم السري الخاص</p>
+        <input type="text" id="passwordInput" placeholder="7/11">
+        <button onclick="checkPassword()">دخول</button>
+        <p id="error" style="color: #ff4d4d; display:none; margin-top:15px; font-weight:bold;">الباسورد خطأ</p>
     </div>
 
     <div id="message-screen">
         <div class="glass-card message-card-content">
-            <h1 style="color:#ffd700; margin-bottom:25px; font-weight: 900; text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); font-size: 2rem;">كل سنة وانتي طيبة</h1>
+            <h1 style="color:#ffd700; margin-bottom:20px;">كل سنة وانتي طيبة</h1>
             <div class="message-text" id="typed-text"></div>
-            
             <div class="surprise-trigger" id="surprise-btn" onclick="startCelebration()">
-                <div style="color: #ffd700; font-weight:700; margin-bottom:5px; letter-spacing: 1px;">اضغطي هنا للمفاجأة</div>
-                <div class="css-heart"></div>
+                <div style="margin-bottom: 5px; color: #ffd700;">اضغطي هنا</div>
+                <div class="heart-icon">❤️</div>
             </div>
         </div>
     </div>
@@ -197,15 +185,13 @@
     <div id="celebration-screen">
         <canvas id="fireworksCanvas"></canvas>
         <div class="final-msg">
-            <div style="font-size: 5rem; color:#ffd700; font-weight:900; text-shadow: 0 0 30px #e74c3c, 0 0 10px #fbb034;">2026</div>
-            <div style="font-size: 1.6rem; line-height: 1.6; color:#fff; font-weight: 700; text-shadow: 0 2px 5px rgba(0,0,0,0.8);">
-                كل عام وأنتِ بألف خير<br>وصحة وسلامة<br>
-                <span style="font-size:1.3rem; color:#ddd; font-weight: 400;">سنة سعيدة عليكي يا رب</span>
-            </div>
+            <div style="font-size: 4rem; color:#ffd700; font-weight:bold;">2026</div>
+            <div style="font-size: 1.5rem; color:#fff;">سنة سعيدة عليكي يا رب ❤️</div>
         </div>
     </div>
 
     <script>
+        // المتغيرات
         const fullMessage = `كل سنة وانتي طيبة بمناسبة السنة الجديدة، كان لازم ابعتلك لاني مقدرش ابدأ سنة جديدة وفي قلبي كلام ليكي مطلعش.
 
 انا عارف اننا بعدنا وده كان نصيب وحكم ربنا، بس الحمد لله اننا لسه موجودين في حياة بعض حتى لو مفيش بينا كلام. بس انا بكتبلك وانا جوايا حزن كبير اوي ووجع مش قادر اخبيه، لاني لغاية النهاردة مدخلتش اي بنت حياتي من بعدك وقفلت قلبي عليكي انتي وبس.
@@ -215,7 +201,14 @@
 بس رغم كل اللي انتي عملتيه ده ورغم الوجع اللي سببتيه ليا، انا لسه بحبك وهفضل احبك ومش هدخل اي بنت حياتي غيرك، لاني واثق ومتأكد انك مهما عرفتي ناس ومهما دخلتي ولاد حياتك مش هتلاقي حد يحبك قدي ولا يخاف عليكي زيي.
 
 انا مسامحك عشان عايزك تكوني مرتاحة، وربنا يكتبلك راحة البال ويسعدك. ولو في اي يوم الدنيا جت عليكي او احتاجتي مساعدة اوعي تترددي لحظة انك تكلميني، هتلاقيني دايما سند وضهر ليكي لاني عمري ما هتغير ناحيتك وهفضل جنبك وقت ما تحتاجيني.`;
+        
+        // تشغيل الموسيقى
+        function playAudio() {
+            const audio = document.getElementById('bg-music');
+            if(audio.paused) { audio.volume = 0.5; audio.play().catch(e=>{}); }
+        }
 
+        // كتابة تلقائية
         let charIndex = 0;
         function typeWriter() {
             if (charIndex < fullMessage.length) {
@@ -228,53 +221,53 @@
             }
         }
 
-        // تفاعل اللمس واليراعات
-        document.addEventListener('mousemove', createSparkle); document.addEventListener('touchmove', createSparkle);
-        function createSparkle(e) {
-            const body = document.querySelector('body'); const spark = document.createElement('div'); spark.className = 'magic-spark';
-            const x = e.touches ? e.touches[0].clientX : e.clientX; const y = e.touches ? e.touches[0].clientY : e.clientY;
-            spark.style.left = x + 'px'; spark.style.top = y + 'px'; spark.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-            body.appendChild(spark); setTimeout(() => { spark.remove(); }, 1000);
-        }
-        const fireflyCont = document.getElementById('fireflies-container');
-        for(let i=0; i<30; i++){ const f = document.createElement('div'); f.className = 'firefly'; f.style.left = Math.random() * 100 + '%'; f.style.bottom = Math.random() * 200 + 'px'; f.style.animationDuration = (Math.random() * 5 + 5) + 's'; f.style.animationDelay = Math.random() * 5 + 's'; fireflyCont.appendChild(f); }
-
-        function playAudio() { const audio = document.getElementById('bg-music'); if (audio.paused) { audio.volume = 0.5; audio.play().catch(e=>{}); } }
-
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth - e.pageX * 2) / 100; const y = (window.innerHeight - e.pageY * 2) / 100;
-            document.getElementById('scene').style.transform = `translateX(${x}px) translateY(${y}px)`;
-            document.getElementById('ground').style.transform = `translateX(${x * 2}px) translateY(${y * 2}px)`;
-        });
-
-        const starCont=document.getElementById('stars-container');for(let i=0;i<200;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.width=Math.random()*2+1+'px';s.style.height=s.style.width;s.style.animationDuration=Math.random()*2+2+'s';starCont.appendChild(s);}
-        const snowCanvas=document.getElementById('snow-canvas');const snowCtx=snowCanvas.getContext('2d');let snowflakes=[];function resizeSnow(){snowCanvas.width=window.innerWidth;snowCanvas.height=window.innerHeight;}window.addEventListener('resize',resizeSnow);resizeSnow();class Snowflake{constructor(){this.x=Math.random()*snowCanvas.width;this.y=Math.random()*snowCanvas.height;this.radius=Math.random()*4+2;this.speed=Math.random()*1.5+0.5;this.opacity=Math.random()*0.6+0.2;this.sway=Math.random()*0.02;this.angle=Math.random()*Math.PI*2;}update(){this.y+=this.speed;this.angle+=this.sway;this.x+=Math.sin(this.angle)*0.5;if(this.y>snowCanvas.height+10){this.y=-10;this.x=Math.random()*snowCanvas.width;}}draw(){snowCtx.beginPath();let gradient=snowCtx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.radius);gradient.addColorStop(0,`rgba(255,255,255,${this.opacity})`);gradient.addColorStop(1,`rgba(255,255,255,0)`);snowCtx.fillStyle=gradient;snowCtx.arc(this.x,this.y,this.radius,0,Math.PI*2);snowCtx.fill();}}for(let i=0;i<120;i++)snowflakes.push(new Snowflake());function animateSnow(){snowCtx.clearRect(0,0,snowCanvas.width,snowCanvas.height);snowflakes.forEach(flake=>{flake.update();flake.draw();});requestAnimationFrame(animateSnow);}animateSnow();
-        
-        function checkPassword(){
+        // باسورد
+        function checkPassword() {
             playAudio();
-            if(document.getElementById('passwordInput').value==="7/11"){
-                const login=document.getElementById('login-screen');
-                login.style.transform='scale(0.9) rotateX(15deg) translateZ(-100px)';login.style.opacity='0';login.style.filter='blur(10px)';
-                setTimeout(()=>{
-                    login.style.display='none'; 
-                    document.getElementById('message-screen').style.display='flex';
-                    setTimeout(typeWriter, 500); 
-                },600);
-            }else{
-                document.getElementById('error').style.display='block';
-                if (navigator.vibrate) navigator.vibrate(200);
+            if(document.getElementById('passwordInput').value === "7/11") {
+                const login = document.getElementById('login-screen');
+                login.style.opacity = '0';
+                login.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    login.style.display = 'none';
+                    document.getElementById('message-screen').style.display = 'flex';
+                    setTimeout(typeWriter, 500);
+                }, 500);
+            } else {
+                document.getElementById('error').style.display = 'block';
+                if(navigator.vibrate) navigator.vibrate(200);
             }
         }
-        
-        function startCelebration(){
-            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
-            const msgScreen=document.getElementById('message-screen');
+
+        // احتفال
+        function startCelebration() {
+            if(navigator.vibrate) navigator.vibrate([100,50,100]);
             document.getElementById('santa').classList.add('santa-zoom');
-            msgScreen.style.transform='scale(1.1)';msgScreen.style.opacity='0';
-            setTimeout(()=>{msgScreen.style.display='none';document.getElementById('celebration-screen').style.display='flex';loopFireworks();},500);
+            const msg = document.getElementById('message-screen');
+            msg.style.opacity = '0';
+            setTimeout(() => {
+                msg.style.display = 'none';
+                document.getElementById('celebration-screen').style.display = 'flex';
+                loopFireworks();
+            }, 500);
         }
-        
-        const canvas=document.getElementById('fireworksCanvas');const ctx=canvas.getContext('2d');let fwWidth,fwHeight,fireworks=[],particles=[];function resizeFireworks(){fwWidth=window.innerWidth;fwHeight=window.innerHeight;canvas.width=fwWidth;canvas.height=fwHeight;}window.addEventListener('resize',resizeFireworks);resizeFireworks();function random(min,max){return Math.random()*(max-min)+min;}class Firework{constructor(sx,sy,tx,ty){this.x=sx;this.y=sy;this.sx=sx;this.sy=sy;this.tx=tx;this.ty=ty;this.distanceToTarget=Math.sqrt(Math.pow(tx-sx,2)+Math.pow(ty-sy,2));this.distanceTraveled=0;this.angle=Math.atan2(ty-sy,tx-sx);this.speed=3;this.acceleration=1.04;this.hue=random(0,360);this.brightness=random(60,80);}update(index){this.speed*=this.acceleration;const vx=Math.cos(this.angle)*this.speed;const vy=Math.sin(this.angle)*this.speed;this.distanceTraveled=Math.sqrt(Math.pow(this.sx-this.x,2)+Math.pow(this.sy-this.y,2));if(this.distanceTraveled>=this.distanceToTarget){createParticles(this.tx,this.ty,this.hue);fireworks.splice(index,1); if(navigator.vibrate) navigator.vibrate(50);}else{this.x+=vx;this.y+=vy;}}draw(){ctx.beginPath();ctx.moveTo(this.x-Math.cos(this.angle)*10,this.y-Math.sin(this.angle)*10);ctx.lineTo(this.x,this.y);ctx.strokeStyle=`hsl(${this.hue},100%,${this.brightness}%)`;ctx.lineWidth=3;ctx.lineCap='round';ctx.shadowBlur=15;ctx.shadowColor=`hsl(${this.hue},100%,50%)`;ctx.stroke();ctx.shadowBlur=0;}}class Particle{constructor(x,y,hue){this.x=x;this.y=y;this.angle=random(0,Math.PI*2);this.speed=random(1,12);this.friction=0.94;this.gravity=1.2;this.hue=random(hue-30,hue+30);this.brightness=random(60,90);this.alpha=1;this.decay=random(0.01,0.025);this.size=random(1.5,3.5);}update(index){this.speed*=this.friction;this.x+=Math.cos(this.angle)*this.speed;this.y+=Math.sin(this.angle)*this.speed+this.gravity;this.alpha-=this.decay;if(this.alpha<=this.decay){particles.splice(index,1);}}draw(){ctx.beginPath();let gradient=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.size*3);gradient.addColorStop(0.1,`hsla(60,100%,90%,${this.alpha})`);gradient.addColorStop(0.4,`hsla(${this.hue},100%,${this.brightness}%,${this.alpha*0.8})`);gradient.addColorStop(1,`hsla(${this.hue},100%,50%,0)`);ctx.fillStyle=gradient;ctx.arc(this.x,this.y,this.size*3,0,Math.PI*2);ctx.globalCompositeOperation='lighter';ctx.fill();ctx.globalCompositeOperation='source-over';}}function createParticles(x,y,hue){let particleCount=80;while(particleCount--){particles.push(new Particle(x,y,hue));}}function loopFireworks(){requestAnimationFrame(loopFireworks);ctx.globalCompositeOperation='destination-out';ctx.fillStyle='rgba(0,0,0,0.4)';ctx.fillRect(0,0,fwWidth,fwHeight);ctx.globalCompositeOperation='source-over';if(Math.random()<0.04){fireworks.push(new Firework(fwWidth/2,fwHeight,random(fwWidth*0.2,fwWidth*0.8),random(fwHeight*0.1,fwHeight*0.4)));}let i=fireworks.length;while(i--){fireworks[i].draw();fireworks[i].update(i);}let j=particles.length;while(j--){particles[j].draw();particles[j].update(j);}}
+
+        // يراعات ونجوم وثلج (خلفيات)
+        const fireflyCont = document.getElementById('fireflies-container');
+        for(let i=0; i<30; i++){ const f=document.createElement('div'); f.className='firefly'; f.style.left=Math.random()*100+'%'; f.style.bottom=Math.random()*200+'px'; f.style.animationDuration=(Math.random()*5+5)+'s'; f.style.animationDelay=Math.random()*5+'s'; fireflyCont.appendChild(f); }
+
+        const starCont=document.querySelector('.stars-container'); for(let i=0;i<100;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.width=Math.random()*2+'px';s.style.height=s.style.width;s.style.animationDelay=Math.random()*3+'s';starCont.appendChild(s);}
+
+        const snowCanvas=document.getElementById('snow-canvas');const snowCtx=snowCanvas.getContext('2d');let snowflakes=[];function resizeSnow(){snowCanvas.width=window.innerWidth;snowCanvas.height=window.innerHeight;}window.addEventListener('resize',resizeSnow);resizeSnow();class Snowflake{constructor(){this.x=Math.random()*snowCanvas.width;this.y=Math.random()*snowCanvas.height;this.radius=Math.random()*3+1;this.speed=Math.random()*1+0.5;this.opacity=Math.random()*0.7+0.3;}update(){this.y+=this.speed;if(this.y>snowCanvas.height)this.y=-10;}draw(){snowCtx.beginPath();snowCtx.arc(this.x,this.y,this.radius,0,Math.PI*2);snowCtx.fillStyle=`rgba(255,255,255,${this.opacity})`;snowCtx.fill();}}for(let i=0;i<100;i++)snowflakes.push(new Snowflake());function animateSnow(){snowCtx.clearRect(0,0,snowCanvas.width,snowCanvas.height);snowflakes.forEach(f=>{f.update();f.draw();});requestAnimationFrame(animateSnow);}animateSnow();
+
+        // حركة الخلفية مع الماوس
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth - e.pageX*2)/100; const y = (window.innerHeight - e.pageY*2)/100;
+            document.querySelector('.scene-container').style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // العاب نارية
+        const canvas=document.getElementById('fireworksCanvas');const ctx=canvas.getContext('2d');let fwWidth,fwHeight,fireworks=[],particles=[];function resizeFireworks(){fwWidth=window.innerWidth;fwHeight=window.innerHeight;canvas.width=fwWidth;canvas.height=fwHeight;}window.addEventListener('resize',resizeFireworks);resizeFireworks();function random(min,max){return Math.random()*(max-min)+min;}class Firework{constructor(sx,sy,tx,ty){this.x=sx;this.y=sy;this.sx=sx;this.sy=sy;this.tx=tx;this.ty=ty;this.distanceToTarget=Math.sqrt(Math.pow(tx-sx,2)+Math.pow(ty-sy,2));this.distanceTraveled=0;this.angle=Math.atan2(ty-sy,tx-sx);this.speed=3;this.acceleration=1.04;this.hue=random(0,360);this.brightness=random(60,80);}update(index){this.speed*=this.acceleration;const vx=Math.cos(this.angle)*this.speed;const vy=Math.sin(this.angle)*this.speed;this.distanceTraveled=Math.sqrt(Math.pow(this.sx-this.x,2)+Math.pow(this.sy-this.y,2));if(this.distanceTraveled>=this.distanceToTarget){createParticles(this.tx,this.ty,this.hue);fireworks.splice(index,1);if(navigator.vibrate)navigator.vibrate(50);}else{this.x+=vx;this.y+=vy;}}draw(){ctx.beginPath();ctx.moveTo(this.x-Math.cos(this.angle)*10,this.y-Math.sin(this.angle)*10);ctx.lineTo(this.x,this.y);ctx.strokeStyle=`hsl(${this.hue},100%,${this.brightness}%)`;ctx.lineWidth=3;ctx.lineCap='round';ctx.shadowBlur=15;ctx.shadowColor=`hsl(${this.hue},100%,50%)`;ctx.stroke();ctx.shadowBlur=0;}}class Particle{constructor(x,y,hue){this.x=x;this.y=y;this.angle=random(0,Math.PI*2);this.speed=random(1,12);this.friction=0.94;this.gravity=1.2;this.hue=random(hue-30,hue+30);this.brightness=random(60,90);this.alpha=1;this.decay=random(0.01,0.025);this.size=random(1.5,3.5);}update(index){this.speed*=this.friction;this.x+=Math.cos(this.angle)*this.speed;this.y+=Math.sin(this.angle)*this.speed+this.gravity;this.alpha-=this.decay;if(this.alpha<=this.decay){particles.splice(index,1);}}draw(){ctx.beginPath();let gradient=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.size*3);gradient.addColorStop(0.1,`hsla(60,100%,90%,${this.alpha})`);gradient.addColorStop(0.4,`hsla(${this.hue},100%,${this.brightness}%,${this.alpha*0.8})`);gradient.addColorStop(1,`hsla(${this.hue},100%,50%,0)`);ctx.fillStyle=gradient;ctx.arc(this.x,this.y,this.size*3,0,Math.PI*2);ctx.globalCompositeOperation='lighter';ctx.fill();ctx.globalCompositeOperation='source-over';}}function createParticles(x,y,hue){let particleCount=50;while(particleCount--){particles.push(new Particle(x,y,hue));}}function loopFireworks(){requestAnimationFrame(loopFireworks);ctx.globalCompositeOperation='destination-out';ctx.fillStyle='rgba(0,0,0,0.4)';ctx.fillRect(0,0,fwWidth,fwHeight);ctx.globalCompositeOperation='source-over';if(Math.random()<0.04){fireworks.push(new Firework(fwWidth/2,fwHeight,random(fwWidth*0.2,fwWidth*0.8),random(fwHeight*0.1,fwHeight*0.4)));}let i=fireworks.length;while(i--){fireworks[i].draw();fireworks[i].update(i);}let j=particles.length;while(j--){particles[j].draw();particles[j].update(j);}}
     </script>
 </body>
 </html>
